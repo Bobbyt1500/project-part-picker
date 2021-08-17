@@ -3,9 +3,8 @@ import project
 from bson import ObjectId
 
 class DBInterface:
-    def __init__(self, db_username, db_password, db_cluster):
-        print(db_username, db_password, db_cluster)
-        self.client = pymongo.MongoClient(f"mongodb+srv://{db_username}:{db_password}@{db_cluster}.c7ris.mongodb.net", tls=True, tlsAllowInvalidCertificates=True)
+    def __init__(self, db_connection_string):
+        self.client = pymongo.MongoClient(db_connection_string, tls=True, tlsAllowInvalidCertificates=True)
         self.projects_coll = self.client.db["projects"]
 
     def insert_project(self, project):

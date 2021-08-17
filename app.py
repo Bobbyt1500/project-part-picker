@@ -9,7 +9,7 @@ import os
 load_dotenv(".env")
 
 app = Flask(__name__)
-db_interface = db.DBInterface(os.environ.get("DB_USERNAME"), os.environ.get("DB_PASSWORD"), os.environ.get("DB_CLUSTER"))
+db_interface = db.DBInterface(os.environ.get("DB_CONNECTION_STRING"))
 
 @app.route("/")
 def home():
