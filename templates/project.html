@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script src="{{ url_for('static', filename='js/partsTable.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<button id="backbtn" onclick="window.location.href='/'"><i class="fas fa-arrow-left"></i> Projects</button>
+{% endblock %}
+
+{% block table_title %}
+
+<h1 id="title">{{project.name}}</h1>
+
+<h3 id="price-label">Total Price: ${{project.get_price()}}</h3>
+
+{% endblock %}
+
+{% block table_inner %}
+<tr>
+    <th>
+        <p>Edit</P>
+    </th>
+    <th>
+        <p>Part Name</p>
+    </th>
+    <th>
+        <p>Part Link</p>
+    </th>
+    <th>
+        <p>Part Price</p>
+    </th>
+    <th>
+        <p>Delete</p>
+    </th>
+</tr>
+
+{% for part in project.parts %}
+<tr data-id="{{part.id}}"">
+    <td>
+        <button class="editbtn tablebtn">
+            <i class="fas fa-edit"></i>
+        </button>
+    </td>
+    <td>
+        <p>{{part.name}}</p>
+    </td>
+    <td style="overflow: hidden;white-space: nowrap;">
+        <a href="{{part.link}}">{{part.link}}</a>
+    </td>
+    <td>
+        <p>${{part.price}}</p>
+    </td>
+    <td>
+        <button class="delbtn tablebtn">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </td>
+</tr>
+{% endfor %}
+
+<tr>
+    <form action="/project/{{project.id}}/add" method="post">
+        <td>
+            <button class="tablebtn createbtn" type="submit">
+                <i class="fas fa-plus"></i>
+            </button>
+        </td>
+        <td>
+            <input class="w-100" name="name">
+        </td>
+        <td>
+            <input class="w-100" name="link">
+        </td>
+        <td>
+            <input class="w-100" min=0 type="number" name="price">
+        </td>
+        <td></td>
+    </form>
+</tr>
+{% endblock %}

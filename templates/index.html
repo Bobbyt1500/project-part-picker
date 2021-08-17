@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script src="{{ url_for('static', filename='js/projectsTable.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+
+{% block table_title %}
+<h1 id="title">Projects</h1>
+{% endblock %}
+
+{% block table_inner %}
+<tr>
+    <th>
+        <p>Edit</P>
+    </th>
+    <th>
+        <p>Project</p>
+    </th>
+    <th>
+        <p>Delete</p>
+    </th>
+</tr>
+
+{% for project in projects %}
+<tr data-id="{{project.id}}"">
+    <td>
+        <button class="editbtn tablebtn">
+            <i class="fas fa-edit"></i>
+        </button>
+    </td>
+    <td style="overflow: hidden;white-space: nowrap;">
+        <a href="project/{{project.id}}">{{project.name}}</a>
+    </td>
+    <td>
+        <button class="delbtn tablebtn">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </td>
+</tr>
+{% endfor %}
+
+<tr>
+    <form action="/add" method="post">
+        <td>
+            <button class="tablebtn createbtn" type="submit">
+                <i class="fas fa-plus"></i>
+            </button>
+        </td>
+        <td>
+            <input class="w-100" name="name">
+        </td>
+        <td></td>
+    </form>
+</tr>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+body {
+    background-color: #22277A;
+}
+
+#backbtn {
+    border: none;
+    background-color: #22277A;
+    color: white;
+    margin: 2%
+}
+
+#title {
+    color: white;
+    text-align: center;
+    margin: 5%;
+}
+
+#price-label {
+    color: white;
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+#table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#table tr:nth-child(odd) {
+    background-color: white;
+}
+
+#table tr:nth-child(even) {
+    background-color: var(--c-gray);
+}
+
+#table th {
+    color: white;
+    background-color: var(--c-purple);
+}
+
+#table td, th {
+    padding: 10px;
+}
+
+#table p {
+    display: table-cell;
+}
+
+[contenteditable="true"] {
+    background-color: white;
+    width: 100%;
+    border: none;
+}
+
+.tablebtn {
+    width: 100%;
+    color: white;
+    border: none;
+}
+
+.editbtn {
+    background-color: var(--c-blue-3);
+}
+
+.editbtn:hover {
+    background-color: var(--c-blue-2);
+}
+
+.savebtn {
+    background-color: #06a800;
+}
+
+.savebtn:hover {
+    background-color: #55ce51;
+}
+
+.delbtn {
+    background-color: #d63312;
+}
+
+.delbtn:hover {
+    background-color: #e84d2e;
+}
+
+.createbtn {
+    background-color: #2028c7;
+}
+
+.createbtn:hover {
+    background-color: #424ae4;
+}
